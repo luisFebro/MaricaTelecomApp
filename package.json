@@ -1,18 +1,16 @@
 {
-  "name": "MaricaTelecomApp",
+  "name": "maricatelecomapp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "npx react-native run-android",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "18.0.0",
-    "react-native": "0.69.1",
-    "react-native-simple-openvpn": "^2.0.0"
+    "react": "^18.0.0",
+    "react-native": "^0.69.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

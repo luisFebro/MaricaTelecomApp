@@ -7,12 +7,6 @@
  */
 
 import React from "react";
-import { Node } from "react";
-import { useEffect, useState } from "react";
-import RNSimpleOpenvpn, {
-    addVpnStateListener,
-    removeVpnStateListener,
-} from "react-native-simple-openvpn";
 import {
     SafeAreaView,
     ScrollView,
@@ -20,8 +14,11 @@ import {
     StyleSheet,
     Text,
     useColorScheme,
+    Image,
     View,
 } from "react-native";
+import SwitchBtn from "./comps/SwitchBtn";
+import HelpConnectionBtn from "./comps/HelpConnectionBtn";
 
 import {
     Colors,
@@ -30,6 +27,68 @@ import {
     LearnMoreLinks,
     ReloadInstructions,
 } from "react-native/Libraries/NewAppScreen";
+
+const App = () => {
+    const isDarkMode = true; // useColorScheme() === "dark";
+
+    const backgroundStyle = {
+        flex: 1,
+        backgroundColor: "#00020f",
+    };
+
+    return (
+        <SafeAreaView style={backgroundStyle}>
+            <View
+                style={{
+                    flex: 1,
+                    backgroundColor: "#002d2a",
+                    maxHeight: 550,
+                    borderBottomRightRadius: 60,
+                    borderBottomLeftRadius: 60,
+                }}
+            >
+                <View
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <Image
+                        source={require("./assets/imgs/logo-marica2.png")}
+                        style={{
+                            width: 120,
+                            height: 110,
+                            resizeMode: "contain",
+                            marginTop: 20,
+                        }}
+                    />
+                    <View style={{ paddingVertical: 10 }}>
+                        <SwitchBtn />
+                    </View>
+                </View>
+                <View style={{ position: "absolute", bottom: -20, right: 5 }}>
+                    <HelpConnectionBtn />
+                </View>
+            </View>
+        </SafeAreaView>
+    );
+};
+
+const styles = StyleSheet.create({
+    sectionContainer: {
+        paddingHorizontal: 24,
+    },
+});
+
+export default App;
+
+/* ARCHIVES
+
+<View style={{ margin: "10px 0" }}>
+                    <SwitchBtn />
+                    <Text style={{ color: "#fff" }}>Hello</Text>
+                </View>
 
 const Section = ({ children, title }) => {
     const isDarkMode = useColorScheme() === "dark";
@@ -59,8 +118,23 @@ const Section = ({ children, title }) => {
     );
 };
 
-const App = () => {
-    const isDarkMode = useColorScheme() === "dark";
+<li className="top-item logo-area text-white">
+                            <figure className="">
+                                <img
+                                    className="logo-img"
+                                    src="/img/febront/logo-marica2.png"
+                                    width={80}
+                                    height={70}
+                                    title="logo da Maricá"
+                                    alt="logo da Maricá"
+                                />
+                            </figure>
+                        </li>
+
+import RNSimpleOpenvpn, {
+    addVpnStateListener,
+    removeVpnStateListener,
+} from "react-native-simple-openvpn";
 
     const [connRes, setConnRes] = useState(null);
     const [statusConn, setStatusConn] = useState("disconnected");
@@ -97,55 +171,4 @@ const App = () => {
         console.log(JSON.stringify(RNSimpleOpenvpn.VpnState, undefined, 2));
     }
 
-    const backgroundStyle = {
-        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
-
-    return (
-        <SafeAreaView style={backgroundStyle}>
-            <StatusBar
-                barStyle={isDarkMode ? "light-content" : "dark-content"}
-            />
-            <ScrollView
-                contentInsetAdjustmentBehavior="automatic"
-                style={backgroundStyle}
-            >
-                <Header />
-                <View
-                    style={{
-                        backgroundColor: isDarkMode
-                            ? Colors.black
-                            : Colors.white,
-                    }}
-                >
-                    <Section title="Step One">
-                        Edit <Text style={styles.highlight}>App.js</Text> to
-                        change this screen and then come back to see your edits.
-                        This is really cool!
-                    </Section>
-                </View>
-            </ScrollView>
-        </SafeAreaView>
-    );
-};
-
-const styles = StyleSheet.create({
-    sectionContainer: {
-        marginTop: 32,
-        paddingHorizontal: 24,
-    },
-    sectionTitle: {
-        fontSize: 24,
-        fontWeight: "600",
-    },
-    sectionDescription: {
-        marginTop: 8,
-        fontSize: 18,
-        fontWeight: "400",
-    },
-    highlight: {
-        fontWeight: "700",
-    },
-});
-
-export default App;
+*/
