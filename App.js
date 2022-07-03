@@ -67,7 +67,7 @@ const App = () => {
                         <SwitchBtn />
                     </View>
                 </View>
-                <View style={{ position: "absolute", bottom: -20, right: 5 }}>
+                <View style={{ position: "absolute", bottom: -35, right: 5 }}>
                     <HelpConnectionBtn />
                 </View>
             </View>
